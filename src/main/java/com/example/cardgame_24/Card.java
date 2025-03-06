@@ -2,48 +2,39 @@ package com.example.cardgame_24;
 
 import javafx.scene.image.Image;
 
-/**
- *  Object representation of playing card image.
- *  Numerical Value, Suit and Image.
- */
 public class Card {
-    private int value; //Numerical Value of Card
-    private String suit; //Suit of Card
-    private Image image; //Image of card
+    private final int value;
+    private final Image image;
 
-    /**
-     * Constructor to initialize a card with its correct value, suit, and image.
-     * @param value
-     * @param suit
-     * @param imagePath
-     */
-    public Card(int value, String suit, String imagePath){
-        this.value = value;
-        this.suit = suit;
-        this.image = new Image(getClass().getResourceAsStream(imagePath)); //Loads image from resource
+    public Card(){
+        value = 0;
+        image = null;
+    }
+    public Card(String file){
+        this.value = getCardValue(file);
+        this.image = new Image(getClass().getResource("cards/"+file).toExternalForm());
+    }
+    public int getValue(){ return this.value;}
+
+    public Image getImage(){return this.image;}
+
+    private int getCardValue(String file){
+        String[] data = file.split("_");
+        String val = data[0];
+        return switch(val){
+            case "ace":
+                yield 1;
+            case "jack":
+                yield 11;
+            case "queen":
+                yield 12;
+            case "king":
+                yield 13;
+            default:
+                if(val.matches("\\d+")){
+                    yield Integer.parseInt(val);
+                } else throw new IllegalArgumentException("Error: Invalid File Type");
+        };
     }
 
-    /**
-     * Gets the numerical value of the card.
-     * @return
-     */
-    public int getValue(){
-        return value;
-    }
-
-    /**
-     * Gets the Suit of the card.
-     * @return
-     */
-    public String getSuit(){
-        return suit;
-    }
-
-    /**
-     * Gets the image of the card.
-     * @return
-     */
-    public Image getImage(){
-        return image;
-    }
 }
