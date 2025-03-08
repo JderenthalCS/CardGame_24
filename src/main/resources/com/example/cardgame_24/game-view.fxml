@@ -7,70 +7,88 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="464.0" prefWidth="660.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cardgame_24.gameController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
+<Pane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.cardgame_24.gameController">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Card Game: 24" textAlignment="CENTER" wrappingWidth="383.8359375">
-         <font>
-            <Font name="Playbill" size="60.0" />
-         </font>
-      </Text>
-      <AnchorPane prefHeight="322.0" prefWidth="620.0">
+      <ImageView fitHeight="583.0" fitWidth="813.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/24_Background.jpg" />
+         </image></ImageView>
+      <VBox alignment="CENTER" prefHeight="583.0" prefWidth="661.0" spacing="20.0">
+          <padding>
+              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+          </padding>
          <children>
-            <StackPane layoutX="100.0" layoutY="70.0" style="-fx-rotate: -10; -fx-background-color: #FFFFFF; -fx-border-color: black; -fx-border-radius: 8; -fx-border-width: 2;">
-               <children>
-                  <ImageView fx:id="card1" fitHeight="170.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@cards/3_of_hearts.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </StackPane>
-            <StackPane layoutX="200.0" layoutY="60.0" style="-fx-background-color: #FFFFFF; -fx-rotate: -2; -fx-border-radius: 8; -fx-border-color: black; -fx-border-width: 2;">
-               <children>
-                  <ImageView fx:id="card2" fitHeight="170.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@cards/ace_of_spades.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </StackPane>
-            <StackPane layoutX="300.0" layoutY="60.0" style="-fx-background-color: #FFFFFF; -fx-rotate: 2; -fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 8;">
-               <children>
-                  <ImageView fx:id="card3" fitHeight="170.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@cards/jack_of_diamonds.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </StackPane>
-            <StackPane layoutX="400.0" layoutY="70.0" style="-fx-background-color: #FFFFFF; -fx-rotate: 10; -fx-border-color: black; -fx-border-radius: 8; -fx-border-width: 2;">
-               <children>
-                  <ImageView fx:id="card4" fitHeight="170.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@cards/king_of_spades.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </StackPane>
-         </children>
-      </AnchorPane>
-      <HBox alignment="CENTER" prefHeight="156.0" prefWidth="620.0" style="-fx-spacing: 15px;">
-         <children>
-            <TextField fx:id="expressionInput" prefHeight="33.0" prefWidth="255.0" text="Enter your expression..." />
-            <Button fx:id="verifyButton" mnemonicParsing="false" prefHeight="43.0" prefWidth="122.0" text="Verify" textAlignment="JUSTIFY">
+            <Text fill="#a10000" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Game: 24" textAlignment="CENTER" wrappingWidth="304.8359375">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Playbill" size="80.0" />
                </font>
-            </Button>
+            </Text>
+            <AnchorPane prefHeight="320.0" prefWidth="621.0">
+               <children>
+                  <StackPane layoutX="100.0" layoutY="70.0" style="-fx-rotate: -10; -fx-background-color: EADDA0; -fx-border-color: black; -fx-border-width: 2;">
+                     <children>
+                        <ImageView fx:id="card1" fitHeight="170.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cards/3_of_hearts.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutX="200.0" layoutY="60.0" style="-fx-background-color: EADDA0; -fx-rotate: -2; -fx-border-color: black; -fx-border-width: 2;">
+                     <children>
+                        <ImageView fx:id="card2" fitHeight="170.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cards/ace_of_spades.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutX="300.0" layoutY="60.0" style="-fx-background-color: EADDA0; -fx-rotate: 2; -fx-border-color: black; -fx-border-width: 2;">
+                     <children>
+                        <ImageView fx:id="card3" fitHeight="170.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cards/jack_of_diamonds.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <StackPane layoutX="400.0" layoutY="70.0" style="-fx-background-color: EADDA0; -fx-rotate: 10; -fx-border-color: black; -fx-border-width: 2;">
+                     <children>
+                        <ImageView fx:id="card4" fitHeight="170.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@cards/king_of_spades.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <TextField fx:id="solutionDisplay" layoutX="187.0" layoutY="253.0" prefHeight="23.0" prefWidth="221.0" promptText="Solution..." style="-fx-background-color: #F5E1A4; -fx-border-color: #C4A484; -fx-border-width: 2;">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextField>
+               </children>
+            </AnchorPane>
+            <HBox alignment="CENTER" prefHeight="136.0" prefWidth="621.0" style="-fx-spacing: 15px;">
+               <children>
+                  <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#onRefreshClicked" prefHeight="61.0" prefWidth="47.0" style="style.css" />
+                  <Button fx:id="findSolutionButton" mnemonicParsing="false" prefHeight="61.0" prefWidth="48.0" />
+                  <Button fx:id="verifyButton" mnemonicParsing="false" onAction="#onVerifyClicked" prefHeight="62.0" prefWidth="43.0" textAlignment="JUSTIFY">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="expressionInput" prefHeight="33.0" prefWidth="255.0" promptText="Enter your expression..." style="-fx-background-color: #F5E1A4; -fx-border-color: #C4A484; -fx-border-width: 2px;">
+                     <font>
+                        <Font size="15.0" />
+                     </font></TextField>
+               </children>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </children>
-</VBox>
+</Pane>
