@@ -67,7 +67,7 @@
                         </ImageView>
                      </children>
                   </StackPane>
-                  <TextField fx:id="solutionDisplay" layoutX="187.0" layoutY="253.0" prefHeight="23.0" prefWidth="221.0" promptText="Solution..." style="-fx-background-color: #F5E1A4; -fx-border-color: #C4A484; -fx-border-width: 2;">
+                  <TextField fx:id="solutionDisplay" editable="false" layoutX="187.0" layoutY="253.0" prefHeight="23.0" prefWidth="221.0" promptText="Solution..." style="-fx-background-color: #F5E1A4; -fx-border-color: #C4A484; -fx-border-width: 2;">
                      <font>
                         <Font size="18.0" />
                      </font></TextField>

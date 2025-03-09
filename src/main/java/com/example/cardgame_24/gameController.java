@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-
+import javafx.scene.media.AudioClip;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
@@ -49,7 +49,43 @@ public class gameController implements Initializable {
         verifyButton.setOnAction(event -> expressionChecker());
         findSolutionButton.setOnAction(event -> findSolution());
 
+        expressionInput.requestFocus();
+
     }
+
+    //Sounds
+
+    /**
+     * Prepares shuffle.mp3 to play when 'deal' button is clicked.
+     */
+    private void playShuffleSound(){
+        URL url = getClass().getResource("/com/example/cardgame_24/sounds/shuffle.mp3");
+
+        if(url == null){
+            System.out.println("Error: shuffle.mp3 not found");
+            return;
+        }
+
+        String soundPath = url.toExternalForm();
+        AudioClip shuffleSound = new AudioClip(soundPath);
+        shuffleSound.play();
+    }
+
+    /**
+     * Prepares hint-chime.mp3 to play when 'deal' button is clicked.
+     */
+    private void playHintChime(){
+        URL url = getClass().getResource("/com/example/cardgame_24/sounds/hint-chime.mp3");
+        if(url == null){
+            System.out.println("Error: hint-chime.mp3 not found");
+            return;
+        }
+
+        String soundPath = url.toExternalForm();
+        AudioClip hintSound = new AudioClip(soundPath);
+        hintSound.play();
+    }
+
 
     @FXML
     public void dealCards(){
@@ -67,6 +103,7 @@ public class gameController implements Initializable {
 
         solutionRevealed = false;
         solutionDisplay.setText("");
+        playShuffleSound();
         }
 
     @FXML
@@ -134,6 +171,7 @@ public class gameController implements Initializable {
         }
 
         expressionInput.requestFocus();
+        playHintChime();
     }
 
     private String maskSolution(String solution){
