@@ -4,10 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Represents a deck object, holding card objects
+ */
 public class cardDeck {
     private List<Card> deck = new ArrayList<>();
     private Random rnd = new Random();
 
+    /**
+     * Constructs a deck of playing cards
+     * Generates cards with suits and values ranging from 2-10 as well as face cards (1, 11-13)
+     */
     public cardDeck(){
         String[] SUITS = {"clubs", "diamonds", "hearts", "spades"};
         String[] FACES = {"jack", "queen", "king", "ace"};
@@ -32,6 +39,10 @@ public class cardDeck {
 
     public List<Card> getDeck() {return deck;}
 
+    /**
+     * Removes and returns a random card from the deck
+     * @return
+     */
     public Card deal(){
         int index = rnd.nextInt(deck.size());
         return deck.remove(index);

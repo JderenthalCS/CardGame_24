@@ -18,12 +18,14 @@ import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-
+/**
+ * Controller class for Card Game 24
+ * Game Logic, UI interaction, sound effects
+ */
 public class gameController implements Initializable {
 
-    @FXML private ImageView[] cardViews;
-
     // Card Displays
+    @FXML private ImageView[] cardViews;
     @FXML private ImageView card1; //Card 1
     @FXML private ImageView card2; //Card 2
     @FXML private ImageView card3; //Card 3
@@ -38,10 +40,17 @@ public class gameController implements Initializable {
     @FXML private TextField expressionInput;
     @FXML private TextField solutionDisplay;
 
+    // cardDeck
     private cardDeck deck; // Creates a deck of cards
 
+    // cards
     private int[] cards;
 
+    /**
+     * Initializes the game by setting up event handles, dealing initial cards
+     * @param url
+     * @param resouceBundle
+     */
     public void initialize(URL url, ResourceBundle resouceBundle){
         deck = new cardDeck(); // Creates a deck of cards
         cardViews = new ImageView[]{card1, card2, card3, card4};
@@ -87,6 +96,9 @@ public class gameController implements Initializable {
     }
 
 
+    /**
+     * Deals four random cards from the deck, updates UI, and plays shuffle sound effect.
+     */
     @FXML
     public void dealCards(){
         cards = new int[4];
@@ -106,12 +118,15 @@ public class gameController implements Initializable {
         playShuffleSound();
         }
 
+    /**
+     * Checks if userInput correctly evalutes to 24
+     */
     @FXML
     public void expressionChecker(){
         String userInput = expressionInput.getText().trim();
 
         if(!validateExpression(userInput, cards)){
-            showAlert("Invalid Input", "Your expression must use each vard value");
+            showAlert("Invalid Input", "Your expression must use each card value");
             return;
         }
     try{
@@ -127,6 +142,12 @@ public class gameController implements Initializable {
     }
     }
 
+    /**
+     * Validates userInput contains all four provided cards
+     * @param input
+     * @param values
+     * @return
+     */
     private boolean validateExpression(String input, int[] values){
         String[] tokens = input.replaceAll("[^0-9]", " ").trim().split("\\s+");
 
@@ -138,12 +159,22 @@ public class gameController implements Initializable {
         return Arrays.equals(inputValues, expectedValues);
     }
 
+    /**
+     * Evaluates mathematical expression
+     * @param input
+     * @return
+     */
     private double evaluateExpression(String input) {
         Expression expression = new ExpressionBuilder(input).build();
         return expression.evaluate();
 
     }
 
+    /**
+     * Displays alerts (pop-up) with a given title or message
+     * @param title
+     * @param message
+     */
     private void showAlert(String title, String message){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
@@ -154,6 +185,11 @@ public class gameController implements Initializable {
 
     @FXML
     private boolean solutionRevealed = false;
+
+    /**
+     * Finds and reveals a solution to 24 using provided cards
+     * If clicked once, shows a masked version (_ for numbers), if clicked again reveals full equation
+     */
     @FXML
     public void findSolution(){
         String solution = solve24(cards);
@@ -174,10 +210,20 @@ public class gameController implements Initializable {
         playHintChime();
     }
 
+    /**
+     * Replaces numbers in the solution with underscores (_), providing a hint
+     * @param solution
+     * @return
+     */
     private String maskSolution(String solution){
         return solution.replaceAll("\\d+", "_");
     }
 
+    /**
+     * Attempts to find a valid equation that results in 24 using provided cards.
+     * @param values
+     * @return
+     */
     private String solve24(int[] values) {
         String[] operators = {"+", "-", "*", "/"};
 
