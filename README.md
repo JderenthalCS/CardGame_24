@@ -20,3 +20,9 @@ A JavaFX-powered "24" card game where players must use four randomly drawn cards
 1. Clone the repository:
    ```sh
    git clone (https://github.com/JderenthalCS/CardGame_24)
+
+## Technologies Used
+* Java
+* CSS
+* JavaFX
+* Maven
